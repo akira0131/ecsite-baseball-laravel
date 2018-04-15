@@ -15,10 +15,10 @@ class WikiController extends Controller
      */
     public function index()
     {
-        // テーブル取得
+        // Wikisテーブルの全レコード取得
         $wikis = Wiki::all();
 
-        // ページトップのviewを表示
+        // ページトップのview表示
         return view('wiki.index')->with([
             'wikis' => $wikis,
         ]);

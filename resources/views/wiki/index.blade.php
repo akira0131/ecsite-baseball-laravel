@@ -1,4 +1,4 @@
-@extends('wiki.app')
+@extends('layouts.admin')
 
 @section('content')
     <h1>Home</h1>

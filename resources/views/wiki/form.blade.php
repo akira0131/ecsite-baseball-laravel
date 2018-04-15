@@ -1,4 +1,4 @@
-@extends('wiki.app')
+@extends('layouts.admin')
 
 @section('content')
     <h1>Form</h1>
@@ -30,5 +30,4 @@
         </div>
         <input type="submit" class="form-control btn-primary">
     </form>
-
 @endsection
