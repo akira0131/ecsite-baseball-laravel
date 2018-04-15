@@ -19,7 +19,7 @@
         "lodash": "^4.17.5",
         "vue": "^2.5.7"
     },
-    "devDependencies": {
+    "dependencies": {
         "gulp": "^3.9.1",
         "gulp-cached": "^1.1.1",
         "gulp-ejs": "^3.1.2",
