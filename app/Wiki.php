@@ -3,7 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-//use cebe\markdown\Markdown as Markdown;
+//use GrahamCampbell\Markdown\Facades\Markdown;
+//use GrahamCampbell\Markdown\Facades\Markdown as Markdown;
 use App\Libs\WikiMarkdown as Markdown;
 
 // wikiモデル
@@ -49,7 +50,7 @@ class Wiki extends Model
     }
 
     /**
-     * url()メソッドの結果を返却
+     * 「body」の内容をMarkdown形式にパース
      *
      * @return title
      */
@@ -57,6 +58,7 @@ class Wiki extends Model
     {
         $parser = new Markdown();
 
+        //return Markdown::convertToHtml($this->body);
         return $parser->parse($this->body);
     }
 

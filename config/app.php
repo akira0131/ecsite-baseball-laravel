@@ -150,6 +150,8 @@ return [
         /*
          * パッケージのサービスプロバイダ
          */
+        Barryvdh\Debugbar\ServiceProvider::class,
+        //GrahamCampbell\Markdown\MarkdownServiceProvider::class,
 
         /*
          * アプリケーションサービスプロバイダ
@@ -208,6 +210,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        //'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
 
     ],
 

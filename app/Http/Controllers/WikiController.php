@@ -86,7 +86,7 @@ class WikiController extends Controller
             $wiki = new Wiki();
             $wiki->title = $title;
         }
-
+        
         // 記事画面のviewを表示
         return view('wiki.show')->with([
             'wiki' => $wiki,
