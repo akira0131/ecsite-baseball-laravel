@@ -56,7 +56,7 @@ desired effect
 </div><!-- ./wrapper -->
 </div>
 @section('scripts')
-    @include('components.scripts')
+    @include('components.js')
 @show
 
 </body>

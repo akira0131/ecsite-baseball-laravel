@@ -9,6 +9,7 @@
         "acacha/admin-lte-template-laravel": "^6.0",
         "acacha/adminlte-laravel-installer": "^4.0",
         "acacha/laravel-social": "^0.2.0",
+        "almasaeed2010/adminlte": "~2.4",
         "barryvdh/laravel-debugbar": "^3.1",
         "cebe/markdown": "^1.2",
         "encore/laravel-admin": "^1.5",
