@@ -152,6 +152,8 @@ return [
          */
         Barryvdh\Debugbar\ServiceProvider::class,
         //GrahamCampbell\Markdown\MarkdownServiceProvider::class,
+        //Encore\Admin\Providers\AdminServiceProvider::class,
+        Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
 
         /*
          * アプリケーションサービスプロバイダ
@@ -212,6 +214,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         //'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
+        'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
 
     ],
 

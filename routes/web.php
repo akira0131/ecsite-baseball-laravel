@@ -12,17 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('top.index');
 });
 
-/*
-|--------------------------------------------------------------------------
-| wikiページ
-|--------------------------------------------------------------------------
-|
-| 各画面の構成（スタイルシート等）はこのwikiでアウトプットしつつ、整理していく。
-| コーディングしながら各画面の構成を考えていると、すごく効率が悪いため。。
-| 後々削除するかどうかは考え中。
-|
-*/
-Route::resource('admin/wiki', WikiController::class);
+Route::group(['middleware' => 'auth'], function () {
+    //    Route::get('/link1', function ()    {
+//        // Uses Auth Middleware
+//    });
+
+    //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
+    #adminlte_routes
+    Route::get('admin/about', 'AboutController@index')->name('about');
+
+    Route::get('admin/about', function ()    {
+        $data = [];
+        return view('admin.about',$data);
+    })->name('about');
+
+});

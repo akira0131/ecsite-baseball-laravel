@@ -3,35 +3,48 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Validator;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+/**
+ * Class RegisterController
+ * @package %%NAMESPACE%%\Http\Controllers\Auth
+ */
 class RegisterController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
-    | ユーザ登録コントローラ
+    | Register Controller
     |--------------------------------------------------------------------------
     |
-    | このコントローラは新しいユーザの登録、バリデーション、生成を処理する。
-    | デフォルトで、このコントローラはトレイトを使用しており、これにより
-    | 他のコードを追加せずとも、この機能を提供している。
+    | This controller handles the registration of new users as well as their
+    | validation and creation. By default this controller uses a trait to
+    | provide this functionality without requiring any additional code.
     |
     */
 
     use RegistersUsers;
 
     /**
-     * 登録後のユーザリダイレクト先
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        return view('auth.register');
+    }
+
+    /**
+     * Where to redirect users after login / registration.
      *
      * @var string
      */
     protected $redirectTo = '/home';
 
     /**
-     * 新しいコントローラインスタンスの生成
+     * Create a new controller instance.
      *
      * @return void
      */
@@ -41,7 +54,7 @@ class RegisterController extends Controller
     }
 
     /**
-     * 送られてきたユーザ登録リクエストのバリデター取得
+     * Get a validator for an incoming registration request.
      *
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
@@ -49,24 +62,30 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'name'     => 'required|max:255',
+            'username' => 'sometimes|required|max:255|unique:users',
+            'email'    => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6|confirmed',
+            'terms'    => 'required',
         ]);
     }
 
     /**
-     * ユーザ登録成功後の新しいユーザインスタンス取得
+     * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return User
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $fields = [
+            'name'     => $data['name'],
+            'email'    => $data['email'],
+            'password' => bcrypt($data['password']),
+        ];
+        if (config('auth.providers.users.field', 'email') === 'username' && isset($data['username'])) {
+            $fields['username'] = $data['username'];
+        }
+        return User::create($fields);
     }
 }
