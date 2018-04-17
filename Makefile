@@ -16,6 +16,10 @@ up:
 stop:
 	cd laradock; docker-compose stop
 
+login:
+	cd laradock; docker-compose up -d workspace
+	cd laradock; docker-compose exec workspace bash
+
 .PHONY: help
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'

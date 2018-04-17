@@ -12,7 +12,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            WikisTableSeeder::class,
+            //WikisTableSeeder::class,
+            AdminUserSeeder::class,
         ]);
         // $this->call(UsersTableSeeder::class);
     }
