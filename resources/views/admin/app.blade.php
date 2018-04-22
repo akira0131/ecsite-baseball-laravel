@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
+この画面は、管理者画面のワイヤーフレーム（Webサイト設計図）になります。
+HTMLの各パーツは「layouts」ディレクトリ内から
 -->
-<html lang="en">
+<html lang="{{ app()->getLocale() }}">
 
 @section('htmlheader')
     @include('components.html_header')
@@ -57,6 +57,7 @@ desired effect
 </div>
 @section('scripts')
     @include('components.js')
+    @yield('js')
 @show
 
 </body>

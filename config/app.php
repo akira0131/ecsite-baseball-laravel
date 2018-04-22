@@ -154,6 +154,7 @@ return [
         //GrahamCampbell\Markdown\MarkdownServiceProvider::class,
         //Encore\Admin\Providers\AdminServiceProvider::class,
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
 
         /*
          * アプリケーションサービスプロバイダ
