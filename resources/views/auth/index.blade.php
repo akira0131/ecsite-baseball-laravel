@@ -1,6 +1,6 @@
 @extends('auth.app')
 
-@section('htmlheader_title')
+@section('html-header-title')
     Log in
 @endsection
 
@@ -62,7 +62,7 @@
 
         </div><!-- /.login-box -->
     </div>
-    @include('components.scripts')
+    @include('components.js')
 
     <script>
       $(function () {

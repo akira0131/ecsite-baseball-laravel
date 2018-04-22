@@ -1,9 +1,12 @@
 @extends('admin.app')
 
-@section('html-header_title')
-    {{ trans('message.home') }}
+@section('html-header-title')
+    {{ trans('message.editor') }}
 @endsection
 
+@section('content-header-title')
+    資料画面
+@endsection
 
 @section('main-content')
     <div class="container-fluid spark-screen">
@@ -13,7 +16,7 @@
                 <!-- Default box -->
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Home</h3>
+                        <h3 class="box-title">編集</h3>
 
                         <div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -23,7 +26,15 @@
                         </div>
                     </div>
                     <div class="box-body">
-                        {{ trans('message.logged') }}. Start creating your amazing application!
+                        <div class="form-group">
+                            <label for="documentTile">タイトル</label>
+                            <input type="text" class="form-control" id="documentTile" placeholder="pro">
+                        </div>
+                        <div class="form-group">
+                            <label for="documentBody">本文</label>
+                            <textarea class="form-control" id="documentBody"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-default">保存</button>
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -32,4 +43,11 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace('documentBody');
+    </script>
 @endsection

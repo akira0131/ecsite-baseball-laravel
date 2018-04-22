@@ -1,15 +1,12 @@
 
-
-/* auto scroll dropdwn menu */
-$(document).ready(function(){
-    $(".dropdown").hover(            
-        function() {
-            $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true,true).slideDown("400");
-            $(this).toggleClass('open');        
-        },
-        function() {
-            $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true,true).slideUp("400");
-            $(this).toggleClass('open');       
-        }
-    );
+/**
+ * ドロップダウンメニューの動作
+ *
+ * クリックでメニュー開閉:
+ *   bootstrapの初期動作通りに動作させるために打ち消す
+ */
+$(document).ready(function() {
+    $('.dropdown-toggle').on('click', '.dropdown-menu', function (e) {
+        e.openPropagation();
+    });
 });
