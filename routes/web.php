@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('top.index');
+    return view('home.index');
 });
 
 Route::group(['middleware' => 'auth'], function () {
@@ -20,6 +20,7 @@ Route::group(['middleware' => 'auth'], function () {
 //        // Uses Auth Middleware
 //    });
 
+    //Route::auth();
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
     Route::get('admin/about', 'AboutController@index')->name('about');
@@ -33,13 +34,13 @@ Route::group(['middleware' => 'auth'], function () {
 
 /*
 |--------------------------------------------------------------------------
-| 資料作成メニュー
+| タスクメニュー
 |--------------------------------------------------------------------------
 |
 | 
 |
 */
-Route::resource('admin/doc', DocController::class);
+Route::resource('{userId}/task', TaskController::class);
 
 
 

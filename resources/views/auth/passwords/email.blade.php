@@ -59,7 +59,7 @@
         </div><!-- /.login-box -->
     </div>
 
-    @include('components.scripts')
+    @include('components.js')
 
     <script>
       $(function () {

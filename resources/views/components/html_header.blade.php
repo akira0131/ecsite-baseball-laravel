@@ -1,12 +1,12 @@
 <head>
     <meta charset="UTF-8">
-    <title> AdminLTE 2 with Laravel - @yield('html-header-title', 'Your title here') </title>
+    <title> {{ $asset_css }}AdminLTE 2 with Laravel - @yield('html-header-title', 'Your title here') </title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- StyleSheet -->
-    <link href="{{ mix('css/admin.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ mix('/css/all.css') }}" rel="stylesheet" type="text/css" />
+    {{-- <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css" /> --}}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

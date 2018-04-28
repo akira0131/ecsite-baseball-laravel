@@ -151,8 +151,6 @@ return [
          * パッケージのサービスプロバイダ
          */
         Barryvdh\Debugbar\ServiceProvider::class,
-        //GrahamCampbell\Markdown\MarkdownServiceProvider::class,
-        //Encore\Admin\Providers\AdminServiceProvider::class,
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
 
@@ -164,6 +162,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\ComposerServiceProvider::class,
 
     ],
 

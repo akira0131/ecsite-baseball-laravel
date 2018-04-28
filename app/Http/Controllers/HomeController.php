@@ -11,7 +11,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 
 /**
- * Class HomeController
+ * Class DashbordController
  * @package App\Http\Controllers
  */
 class HomeController extends Controller
@@ -33,6 +33,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        return view('dashbord.index');
     }
 }
